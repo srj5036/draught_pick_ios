@@ -122,19 +122,19 @@
 		D2A0C50318D922520086BA03 /* DraughtPick */ = {
 			isa = PBXGroup;
 			children = (
-				D2A0C50C18D922520086BA03 /* DraughtPickAppDelegate.h */,
-				D2A0C50D18D922520086BA03 /* DraughtPickAppDelegate.m */,
-				D2A0C50F18D922520086BA03 /* Images.xcassets */,
-				D2A0C50418D922520086BA03 /* Supporting Files */,
-				D2A0C52C18D922C00086BA03 /* SearchViewController.h */,
-				D2A0C52D18D922C00086BA03 /* SearchViewController.m */,
-				D2A0C52E18D922C00086BA03 /* SearchViewController.xib */,
-				D2A0C53918D928D20086BA03 /* ResultsViewController.h */,
-				D2A0C53A18D928D20086BA03 /* ResultsViewController.m */,
-				D2A0C53B18D928D20086BA03 /* ResultsViewController.xib */,
 				D2A0C53E18D93AE30086BA03 /* DetailViewController.h */,
 				D2A0C53F18D93AE30086BA03 /* DetailViewController.m */,
 				D2A0C54018D93AE30086BA03 /* DetailViewController.xib */,
+				D2A0C50C18D922520086BA03 /* DraughtPickAppDelegate.h */,
+				D2A0C50D18D922520086BA03 /* DraughtPickAppDelegate.m */,
+				D2A0C50F18D922520086BA03 /* Images.xcassets */,
+				D2A0C53918D928D20086BA03 /* ResultsViewController.h */,
+				D2A0C53A18D928D20086BA03 /* ResultsViewController.m */,
+				D2A0C53B18D928D20086BA03 /* ResultsViewController.xib */,
+				D2A0C52C18D922C00086BA03 /* SearchViewController.h */,
+				D2A0C52D18D922C00086BA03 /* SearchViewController.m */,
+				D2A0C52E18D922C00086BA03 /* SearchViewController.xib */,
+				D2A0C50418D922520086BA03 /* Supporting Files */,
 			);
 			path = DraughtPick;
 			sourceTree = "<group>";
@@ -468,6 +468,7 @@
 				D2A0C52818D922520086BA03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2A0C52918D922520086BA03 /* Build configuration list for PBXNativeTarget "DraughtPickTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +477,7 @@
 				D2A0C52B18D922520086BA03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

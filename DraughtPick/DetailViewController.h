@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *breweryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

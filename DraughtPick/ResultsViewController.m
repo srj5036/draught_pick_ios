@@ -6,6 +6,12 @@
 //  Copyright (c) 2014 Scott James. All rights reserved.
 //
 
+#ifdef DEBUG
+#define BASE_URL @"http://localhost:5000"
+#else
+#define BASE_URL @"http://immense-thicket-8918.herokuapp.com"
+#endif
+
 #import "ResultsViewController.h"
 #import "DetailViewController.h"
 
@@ -20,9 +26,9 @@
     self = [super init];
     if (self) {
         
-        NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://immense-thicket-8918.herokuapp.com/search?name=%@", [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+        NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/search?name=%@", BASE_URL, [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
         
-        NSLog(@"searchURL %@", searchURL);
+        NSLog(@"Search Request: %@", searchURL);
         
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSData* data = [NSData dataWithContentsOfURL: searchURL];
@@ -83,7 +89,7 @@
     
     self.resultsArray = (NSArray *)[json objectForKey:@"data"];
     
-    NSLog(@"JSON: \n%@", json);
+    //NSLog(@"JSON: \n%@", json);
     
     [self.resultsTableView reloadData];
 }
@@ -92,6 +98,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.navigationItem setTitle:[NSString stringWithFormat:@"Find Beer"]];
     [self.navigationController setNavigationBarHidden:NO];
 }
 

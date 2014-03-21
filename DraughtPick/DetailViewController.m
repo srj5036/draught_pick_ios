@@ -6,6 +6,12 @@
 //  Copyright (c) 2014 Scott James. All rights reserved.
 //
 
+#ifdef DEBUG
+#define BASE_URL @"http://localhost:5000"
+#else
+#define BASE_URL @"http://immense-thicket-8918.herokuapp.com"
+#endif
+
 #import "DetailViewController.h"
 
 @interface DetailViewController ()
@@ -17,9 +23,9 @@
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://immense-thicket-8918.herokuapp.com/beer/%@", [id stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+        NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/beer/%@", BASE_URL, [id stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
         
-        NSLog(@"searchURL %@", searchURL);
+        NSLog(@"Find Beer Request: %@", searchURL);
         
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSData* data = [NSData dataWithContentsOfURL: searchURL];
@@ -39,6 +45,16 @@
                           JSONObjectWithData:responseData
                           options:kNilOptions
                           error:&error];
+    
+    NSString *imageURLString = [[NSString alloc] initWithString:(NSString *)[json objectForKey:@"label_large"]];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURLString]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.imageView setImage:[UIImage imageWithData:data]];
+        });
+    });
     
     self.scoreLabel.text = [json objectForKey:@"ba_score"];
     self.nameLabel.text = [json objectForKey:@"name"];

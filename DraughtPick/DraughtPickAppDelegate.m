@@ -19,6 +19,10 @@
     SearchViewController *searchViewController = [[SearchViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:searchViewController];
     
+    [[UINavigationBar appearance] setBarTintColor:[UIColor darkGrayColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
     self.window.rootViewController = navController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
